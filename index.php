@@ -2,11 +2,11 @@
 	require_once 'connect.php';
 
     // Реакция на пост
-	if (isset($_POST['liked'])) {
+	if (isset($_POST['like'])) {
 		$post_id = $_POST['postid'];
 		$result = mysqli_query($connect, "SELECT * FROM post WHERE id = $post_id");
 		$row = mysqli_fetch_array($result);
-		$like = $row['likes'];
+		$like = $row['like'];
         if ($like < 0){
             $like = 0;
         }
@@ -38,7 +38,7 @@
 	$post = mysqli_query($connect, "SELECT * FROM post ORDER BY id DESC");
     $posts = mysqli_fetch_all($post);
 
-    $total = count($posts); // кол-во постов
+    $total = count($post); // кол-во постов
     $per_page = 5; // кол-во постов на одну страницу
     $count_page = ceil( $total / $per_page ); // кол-во страниц
     $page = $_GET['page']??1; // определение страницы по GET запросу
@@ -69,7 +69,7 @@
         <div class="form">
             <form action="post.php" method="POST" enctype="multipart/form-data">
                 <label>Login:</label><br>
-                <input type="text" class="login" name ="login"><br>
+                <input type="text" class="log" name ="log"><br>
                 <textarea name="post"></textarea>
 				         <br>
                 <input type="Submit" Value="Post" class="button">
