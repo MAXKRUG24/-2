@@ -3,7 +3,7 @@
 
     $post_id = $_GET['id'];
     $post = mysqli_query($connect, "SELECT * FROM post WHERE id = $post_id ");
-    $post = mysqli_fetch_assoc($post);
+    $post = mysqli_fetch_assoc($posts);
 ?>
 
 <!DOCTYPE html>
