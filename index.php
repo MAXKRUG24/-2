@@ -36,12 +36,12 @@
 
     //Пагинация
 	$post = mysqli_query($connect, "SELECT * FROM post ORDER BY id DESC");
-    $posts = mysqli_fetch_all($post);
+    $posts = mysqli_fetch_all($posts);
 
-    $total = count($post); // кол-во постов
-    $per_page = 5; // кол-во постов на одну страницу
-    $count_page = ceil( $total / $per_page ); // кол-во страниц
-    $page = $_GET['page']??1; // определение страницы по GET запросу
+    $total = count($post);
+    $per_page = 5;
+    $count_page = ceil( $total / $per_page );
+    $page = $_GET['page']??1;
     $page = (int)$page;
 
     if(!$page || $page < 1){
@@ -49,7 +49,7 @@
     } else if ($page > $count_page) {
         $page = $count_page;
     }
-    $start = ($page - 1) * $per_page; // начало распечатки элементов постранично
+    $start = ($page - 1) * $per_page;
 
 ?>
 <!DOCTYPE html>
@@ -83,7 +83,7 @@
 		$posts = array_slice($posts, $start, $per_page); // выборка по n строк из бд
 		foreach ($posts as $post) {
 			?>
-			<div class="post">
+			<div class="posts">
             	<div class="user">
                 	<?php echo $post[1]; ?>
             	</div>
