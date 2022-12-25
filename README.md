@@ -31,9 +31,17 @@
 
 ## API сервера и хореография
 
+ ![Добавление](add.png)
+
+![Удаление](delete.png)
  
- 
-Add post
+*Add post*
+
+![add](алгоритм1.png)
+
+*Delete post*
+
+![delete](алгоритм2.png)
  
 
 
